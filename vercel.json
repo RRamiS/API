@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/carritosRoutes/comparar-precios",
+        "methods": ["POST"],
+        "dest": "/carritosRoutes/comparar-precios"
+      }
+    ],
+    "cors": {
+      "allowOrigins": ["*"]
+    }
+  }
+  
