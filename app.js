@@ -6,40 +6,15 @@ const cors = require('cors');
 const supermercadoRoutes = require('./routes/supermercadoRoutes');
 const carritoRoutes = require('./routes/carritoRoutes');
 
-const allowCors = fn => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
-  if (req.method === 'OPTIONS') {
-    res.status(200).end()
-    return
-  }
-  return await fn(req, res)
-}
 
-const handler = (req, res) => {
-  const d = new Date()
-  res.end(d.toString())
-}
-
-module.exports = allowCors(handler)
 
 const app = express();
 const port = 3000;
-const corsOptions = {
-  origin: 'https://precios-empresariales.vercel.app/', // Reemplaza esto con la URL de tu aplicación en Vercel
+app.use(cors({
+  origin: 'https://precios-empresariales.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
-  optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
+}));
 mongoose.connect('mongodb+srv://ramiro053:fU1BaZ3oLIwSsVFj@gestordeprecios.gwughqe.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
