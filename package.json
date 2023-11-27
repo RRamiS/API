@@ -6,6 +6,9 @@
   "scripts": {
     "test": "start"
   },
+  "engines": {
+    "node": ">=16.20.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
