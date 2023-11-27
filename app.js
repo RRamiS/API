@@ -9,7 +9,14 @@ const carritoRoutes = require('./routes/carritoRoutes');
 
 const app = express();
 const port = 3000;
-app.use(cors());
+const corsOptions = {
+  origin: 'https://precios-empresariales.vercel.app/', // Reemplaza esto con la URL de tu aplicación en Vercel
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 mongoose.connect('mongodb+srv://ramiro053:fU1BaZ3oLIwSsVFj@gestordeprecios.gwughqe.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
