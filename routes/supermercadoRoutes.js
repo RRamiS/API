@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Supermercado = require('../models/supermercado');
-
+router.use(cors());
 
 router.get('/', async (req, res) => {
     try {

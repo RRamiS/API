@@ -4,7 +4,7 @@ const router = express.Router();
 const Carrito = require('../models/carrito');
 const Supermercado = require('../models/supermercado');
 const Producto = require('../models/producto');
-
+router.use(cors());
 router.post('/agregar', async (req, res) => {
   const { usuarioId, productoId, cantidad } = req.body;
 

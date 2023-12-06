@@ -3,7 +3,7 @@ const router = express.Router();
 const CarritoFarmacia = require('../models/carrito');
 const Farmacia = require('../models/farmacia');
 const ProductoFarmacia = require('../models/productoFarmacia');
-
+router.use(cors());
 router.post('/agregar', async (req, res) => {
   const { farmaciaId, productoId, cantidad } = req.body;
 

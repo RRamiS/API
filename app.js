@@ -34,7 +34,7 @@ module.exports = allowCors(handler)
 const app = express();
 const port = 3000;
 app.use(cors());
-router.use(cors());
+
 
 
 mongoose.connect('mongodb+srv://ramiro053:fU1BaZ3oLIwSsVFj@gestordeprecios.gwughqe.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
