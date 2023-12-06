@@ -1,6 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
 const Carrito = require('../models/carrito');
 const Supermercado = require('../models/supermercado');
 const Producto = require('../models/producto');

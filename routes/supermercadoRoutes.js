@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
 const Supermercado = require('../models/supermercado');
 router.use(cors());
 

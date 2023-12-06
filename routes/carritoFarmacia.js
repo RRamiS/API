@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
 const CarritoFarmacia = require('../models/carrito');
 const Farmacia = require('../models/farmacia');
 const ProductoFarmacia = require('../models/productoFarmacia');
