@@ -1,23 +1,21 @@
-// carrito.js (en la carpeta routes)
+
 const express = require('express');
 const router = express.Router();
 const Carrito = require('../models/carrito');
 const Supermercado = require('../models/supermercado');
 const Producto = require('../models/producto');
 
-// Agregar producto al carrito
 router.post('/agregar', async (req, res) => {
   const { usuarioId, productoId, cantidad } = req.body;
 
   try {
-    // Verificar si el carrito existe para el usuario
+
     let carrito = await Carrito.findOne({ usuarioId });
 
     if (!carrito) {
       carrito = new Carrito({ usuarioId, productos: [] });
     }
 
-    // Agregar el producto al carrito o actualizar cantidad
     const productoIndex = carrito.productos.findIndex(p => p.productoId === productoId);
 
     if (productoIndex !== -1) {
@@ -34,12 +32,12 @@ router.post('/agregar', async (req, res) => {
   }
 });
 
-// Endpoint para comparar precios
+
 router.post('/comparar-precios', async (req, res) => {
   const { productos } = req.body;
 
   try {
-    // Obtén todos los supermercados desde la base de datos con la información de productos
+
     const supermercados = await Supermercado.find().populate('productos.productoId');
 
     const resultadosComparacion = compararPrecios(supermercados, productos);
