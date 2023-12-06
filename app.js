@@ -33,14 +33,10 @@ module.exports = allowCors(handler)
 
 const app = express();
 const port = 3000;
-const corsOptions = {
-  origin: 'https://precios-empresariales.vercel.app/', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+app.use(cors());
+router.use(cors());
 
-app.use(cors(corsOptions));
+
 mongoose.connect('mongodb+srv://ramiro053:fU1BaZ3oLIwSsVFj@gestordeprecios.gwughqe.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
