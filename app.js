@@ -33,7 +33,7 @@ module.exports = allowCors(handler)
 const app = express();
 const port = 3000;
 const corsOptions = {
-  origin: 'https://precios-empresariales.vercel.app/', // Reemplaza esto con la URL de tu aplicación en Vercel
+  origin: 'https://precios-empresariales.vercel.app/', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
